@@ -1,0 +1,17 @@
+{
+  "name": "figmaio",
+  "version": "0.0.1",
+  "repository": "https://github.com/rojcyk/figmaIO.git",
+  "author": "Denis Rojcyk <rojcyk@users.noreply.github.com>",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublish": "tsc"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.15.0",
+    "@types/node": "^14.0.14",
+    "typescript": "^3.9.5"
+  }
+}
