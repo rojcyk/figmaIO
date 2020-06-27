@@ -1,4 +1,4 @@
-# figmaIO
+# FigmaIO
 
 The purpose of this package is to make the [communication](https://www.figma.com/plugin-docs/how-plugins-run/) between your code and your [Figma plugin](https://www.figma.com/plugin-docs/intro/) easier. It achieves this by creating a very simple interfac.
 
