@@ -115,4 +115,4 @@ io.on('data_update', (data: any): void => {
 
 ## Footnotes
 
-I saw the original idea of this lib sometimes early in 2019 on [Figma Spectrum](https://spectrum.chat/figma?tab=posts). I copied it over to my code and now a year later I need to keep using it with my other projects. So I decided to put it out as a standalone lib. If you are the person, please let me know!
+I saw the original idea of this lib sometimes early in 2019 on [Figma Spectrum](https://spectrum.chat/figma?tab=posts) but I don't remember who came up with it. I copied it over to my code and now a year later I need to keep using it with my other projects. So I decided to put it out as a standalone lib. If you are the person, please let me know!
