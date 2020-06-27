@@ -44,7 +44,6 @@ const data = await io.async('data_update')
 
 Now, the way I use this library is as follow. In my code.js I do something similar to this:
 
-
 ```js
 /* CODE.js */
 
