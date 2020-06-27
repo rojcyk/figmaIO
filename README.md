@@ -19,9 +19,8 @@ So in your UI, you can triggerr the event like this
  * rendered and the plugin logic) you need to check for its existence. */
 
 if (io) {
-  io.send(
-    'data_update', /* What is the name of the event that is happening? Can be anything */
-   {
+/* What is the name of the event that is happening? Can be anything */
+  io.send('data_update', {
      /* any object you want */
    })
 }
@@ -35,9 +34,8 @@ Here is an example how you would use the library in your plugin code logic.
 import { script as io } from 'figma-io'
 
 export const updateListener = () => {
-  io.on(
-    'data_update', // Your event name, it can by anything
-    (data: any): void => {
+  /* Event name, it can by anything */
+  io.on('data_update', (data: any): void => {
       // Here you can do anything you want with the data
       console.log(data)
     }
