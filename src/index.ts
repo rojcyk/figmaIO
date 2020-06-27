@@ -5,7 +5,7 @@ import { EventEmitter } from 'events'
 
 /* The behaviour of the lib changes based on whether
  * we are running the plugin from the UI or the plugin code side */
-const isRenderer = typeof figma === 'undefined'
+// const isRenderer = typeof figma === 'undefined'
 
 /* We are extending the standard EventEmitter with our helpers functions */
 interface ExtendedEmitter extends EventEmitter {
@@ -29,7 +29,7 @@ function createInterface(renderer?: boolean): any {
 
   if (renderer) {
     /* If we in the the renderer, we are using standard JS window.onmessage function
-     * and we are parsing information that came from the code event
+     * and we are parsing information that came from the figma event
      * https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onmessage */
     window.onmessage = (ev: any): void => receive(ev.data.pluginMessage)
   } else {
@@ -44,7 +44,7 @@ function createInterface(renderer?: boolean): any {
    *********************/
 
   emitter.send = (event: any, data: any): void => {
-    /* We need to know the name of the event, otherwise we wouldn't know what to listen to */
+    /* We need to know the name of the event, otherwise we wouldn't know how to differentiate events */
     if (typeof event !== 'string') {
       throw new Error('Expected first argument to be an event name string')
     }
@@ -80,5 +80,8 @@ function createInterface(renderer?: boolean): any {
   return emitter
 }
 
-export const html = isRenderer ? createInterface(true) : undefined
-export const script = isRenderer ? undefined : createInterface()
+export const html = createInterface(true)
+export const script = createInterface()
+
+// export const html = isRenderer ? createInterface(true) : undefined
+// export const script = isRenderer ? undefined : createInterface()
