@@ -6,10 +6,10 @@ First, you need to differentiate whether you are using the library in the Figma 
 
 ```js
 /* In your are in the plugin logic (code) */
-import { script as io } from 'figma-io'
+import { script as io } from 'figmaio'
 
 /*f you are in the UI */
-import { html as io } from 'figma-io'
+import { html as io } from 'figmaio'
 ```
 
 So in your UI, you can triggerr the event like this
