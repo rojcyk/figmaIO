@@ -5,7 +5,7 @@ import { EventEmitter } from 'events'
 
 /* The behaviour of the lib changes based on whether
  * we are running the plugin from the UI or the plugin code side */
-// const isRenderer = typeof figma === 'undefined'
+const isRenderer = typeof figma === 'undefined'
 
 /* We are extending the standard EventEmitter with our helpers functions */
 interface ExtendedEmitter extends EventEmitter {
@@ -15,7 +15,7 @@ interface ExtendedEmitter extends EventEmitter {
 
 /* The whole logic changes based on whether we are running the emmiter in
  * the renderer or in the code side of the plugin. */
-function createInterface(renderer?: boolean): any {
+function createInterface(renderer?: boolean): ExtendedEmitter {
   const emitter = new EventEmitter() as ExtendedEmitter
 
   /*********************
@@ -80,8 +80,8 @@ function createInterface(renderer?: boolean): any {
   return emitter
 }
 
-export const html = createInterface(true)
-export const script = createInterface()
+// export const html = createInterface(true)
+// export const script = createInterface()
 
-// export const html = isRenderer ? createInterface(true) : undefined
-// export const script = isRenderer ? undefined : createInterface()
+export const html = isRenderer ? createInterface(true) : undefined
+export const script = isRenderer ? undefined : createInterface()
