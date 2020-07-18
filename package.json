@@ -9,7 +9,7 @@
   "scripts": {
     "compile": "tsc",
     "clean": "rm -rf dist",
-    "prebuildpackage": "npm run clean && npm run compile && node dist/SetupPackage.js",
+    "prebuildpackage": "yarn run clean && yarn run compile && node dist/SetupPackage.js",
     "buildpackage": "cd dist && npm pack",
     "publish": "cd dist && np"
   },
