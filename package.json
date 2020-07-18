@@ -1,6 +1,6 @@
 {
   "name": "figmaio",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "repository": "https://github.com/rojcyk/figmaIO.git",
   "author": "Denis Rojcyk <rojcyk@users.noreply.github.com>",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "compile": "tsc",
     "clean": "rm -rf dist",
     "build": "yarn run clean && yarn run compile && node dist/setupPackage.js && rm dist/setupPackage.*",
-    "publish": "cd dist && np"
+    "publish": "yarn run build && cd dist && np"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
