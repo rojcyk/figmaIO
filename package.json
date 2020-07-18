@@ -10,6 +10,10 @@
     "prepublish": "tsc",
     "np": "np"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "devDependencies": {
     "@figma/plugin-typings": "^1.15.0",
     "@types/node": "^14.0.14",
