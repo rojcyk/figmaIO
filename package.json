@@ -6,7 +6,6 @@
   "license": "MIT",
   "main": "dist/",
   "types": "dist/index.d.ts",
-  "files": ["dist/*.d.ts"],
   "scripts": {
     "compile": "tsc",
     "clean": "rm -rf dist",
