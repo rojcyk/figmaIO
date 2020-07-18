@@ -7,11 +7,13 @@
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "np": "np"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.15.0",
     "@types/node": "^14.0.14",
+    "np": "^6.3.2",
     "typescript": "^3.9.5"
   }
 }
