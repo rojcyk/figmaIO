@@ -1,12 +1,15 @@
 {
   "name": "figmaio",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "repository": "https://github.com/rojcyk/figmaIO.git",
   "author": "Denis Rojcyk <rojcyk@users.noreply.github.com>",
   "license": "MIT",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
-  "files": ["dist/index.d.ts", "dist/index.js"],
+  "files": [
+    "dist/index.d.ts",
+    "dist/index.js"
+  ],
   "scripts": {
     "prepublish": "tsc",
     "np": "np"
