@@ -12,7 +12,7 @@
     "clean": "rm -rf dist",
     "prebuildpackage": "npm run clean && npm run compile && node dist/SetupPackage.js",
     "buildpackage": "cd dist && npm pack",
-    "publish": "np"
+    "publish": "cd dist && np"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
