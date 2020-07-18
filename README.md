@@ -1,5 +1,7 @@
 # FigmaIO
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/65f5afa9f3494fde89362d50acacf989)](https://www.codacy.com/manual/rojcyk/figmaIO?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rojcyk/figmaIO&amp;utm_campaign=Badge_Grade)
+
 The purpose of this package is to make the [communication](https://www.figma.com/plugin-docs/how-plugins-run/) between your code and your [Figma plugin](https://www.figma.com/plugin-docs/intro/) easier. It achieves this by creating a very simple interfac.
 
 First, you need to differentiate whether you are using the library in the Figma code, or in figma UI. This is important, because if you won't be using the right component for the right section of the code, the lib won't work.
@@ -43,7 +45,6 @@ const data = await io.async('data_update')
 ## Examples
 
 Now, the way I use this library is as follow. In my code.js I do something similar to this:
-
 
 ```js
 /* CODE.js */
