@@ -4,15 +4,15 @@
   "repository": "https://github.com/rojcyk/figmaIO.git",
   "author": "Denis Rojcyk <rojcyk@users.noreply.github.com>",
   "license": "MIT",
+  "main": "dist/",
   "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "files": [
-    "dist/index.d.ts",
-    "dist/index.js"
-  ],
+  "files": ["dist/*.d.ts"],
   "scripts": {
-    "prepublish": "tsc",
-    "np": "np"
+    "compile": "tsc",
+    "clean": "rm -rf dist",
+    "prebuildpackage": "npm run clean && npm run compile && node dist/SetupPackage.js",
+    "buildpackage": "cd dist && npm pack",
+    "publish": "np"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
