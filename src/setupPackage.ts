@@ -15,7 +15,7 @@ function main() {
         sourceObj.main = sourceObj.main.slice(5)
     }
     fs.writeFileSync(__dirname + "/package.json", Buffer.from(JSON.stringify(sourceObj, null, 2), "utf-8") )
-    fs.writeFileSync(__dirname + "/version.txt", Buffer.from(sourceObj.version, "utf-8") )
+    // fs.writeFileSync(__dirname + "/version.txt", Buffer.from(sourceObj.version, "utf-8") )
 
     fs.copyFileSync(__dirname + "/../.npmignore", __dirname + "/.npmignore")
     fs.copyFileSync(__dirname + "/../README.md", __dirname + "/README.md")
