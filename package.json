@@ -13,7 +13,7 @@
     "publish": "yarn run build && cd dist && np"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
+    "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "devDependencies": {
