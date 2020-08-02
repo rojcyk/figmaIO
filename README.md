@@ -16,19 +16,20 @@ Very simple to do, just install it via `npm install figmaio` or `yarn add figmai
 
 ## How to use
 
-First, you need to differentiate whether you are using the library in the Figma code, or in figma UI. This is important, because if you won't be using the right component for the right section of the code, the lib won't work.
+First, you need to differentiate whether you are using the library in the Figma Code, or in Figma UI. This is important, because if you won't be using the right component for the right section of the code it will break your build process. _(it breakes the process because Figma code is not available in the browser API and the browser API in the Figma code)_
+
 
 ```js
 /* In your are in the plugin logic (code) */
-import { script as io } from 'figmaio';
+import io from 'figmaio/code';
 
 /* If you are in the UI */
-import { html as io } from 'figmaio';
+import io from 'figmaio/ui';
 ```
 
-## How to use
+### Sending events
 
-Now, the whole library is about two simple events. Sending data, and recieving data. You send the data like this:
+This is pretty straight forward to do. Just use the `io.send` and pass two parameters into it. The event name, and the data.
 
 ```js
 /* What is the name of the event that is happening? Can be anything */
@@ -37,7 +38,9 @@ io.send('data_update', {
 });
 ```
 
-And then you listen for data like this:
+### Listening for events
+
+Waiting for events is just as easy. Use the `io.on` function, and pass in the event name, and do whatever you need to do in the callback.
 
 ```js
 /* What event name are you waiting for? */
@@ -109,21 +112,6 @@ ReactDOM.render(
  <App data={data} />,
  node,
 )
-```
-
-## Listeners
-
-... and that is the basic gist of it. But lets say that you need to update saved information stored in Figma, and you need to send the updated data directly from the UI. You send the data over as you would normally do. But you need to setup listeners for that event, like this:
-
-
-```js
-/* previously shown code.js */
-
-io.on('data_update', (data: any): void => {
-    // Here you can do anything you want with the data
-    console.log(data);
-  }
-);
 ```
 
 ## Footnotes
