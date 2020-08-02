@@ -2,7 +2,19 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/65f5afa9f3494fde89362d50acacf989)](https://www.codacy.com/manual/rojcyk/figmaIO?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rojcyk/figmaIO&amp;utm_campaign=Badge_Grade)
 
-The purpose of this package is to make the [communication](https://www.figma.com/plugin-docs/how-plugins-run/) between your code and your [Figma plugin](https://www.figma.com/plugin-docs/intro/) easier. It achieves this by creating a very simple interfac.
+
+The way Figma communicates with its plugins is quite different to what you might be used to from other tools. It goes something like this.
+
+- **Plugin UI** - Are written using JavaScript, HTML and CSS. **`This exposes a very browser-like environment`**.
+- **Plugin Code** - For performance, the code itself runs on the main thread in a sandbox. The sandbox is a minimal JavaScript environment and **`does not expose browser APIs`.**
+
+So basically, in the plugin UI, you deal with the user interaction (all the buttons, sliders and inputs). And in code, you deal with the code execution and interaction with the canvas (removing layers, changing layers, whatever you want to do). So to make all of this happen, you need to send data over to each othe. [Figma has an API](https://www.figma.com/plugin-docs/api/properties/figma-ui-onmessage/) for this, but I don't like it that much and I find it clunky to use. This library aims to make it easier to do.
+
+## Installation
+
+Very simple to do, just install it via `npm install figmaio` or `yarn add figmaio`.
+
+## How to use
 
 First, you need to differentiate whether you are using the library in the Figma code, or in figma UI. This is important, because if you won't be using the right component for the right section of the code, the lib won't work.
 
