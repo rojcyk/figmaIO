@@ -1,4 +1,8 @@
-# FigmaIO
+<p align="center">
+  <img src="./logo.png">
+</p>
+
+# About
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/65f5afa9f3494fde89362d50acacf989)](https://www.codacy.com/manual/rojcyk/figmaIO?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rojcyk/figmaIO&amp;utm_campaign=Badge_Grade)
 
