@@ -2,21 +2,34 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/65f5afa9f3494fde89362d50acacf989)](https://www.codacy.com/manual/rojcyk/figmaIO?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rojcyk/figmaIO&amp;utm_campaign=Badge_Grade)
 
-The purpose of this package is to make the [communication](https://www.figma.com/plugin-docs/how-plugins-run/) between your code and your [Figma plugin](https://www.figma.com/plugin-docs/intro/) easier. It achieves this by creating a very simple interfac.
 
-First, you need to differentiate whether you are using the library in the Figma code, or in figma UI. This is important, because if you won't be using the right component for the right section of the code, the lib won't work.
+The way Figma communicates with its plugins is quite different to what you might be used to from other tools. It goes something like this.
 
-```js
-/* In your are in the plugin logic (code) */
-import { script as io } from 'figmaio';
+- **Plugin UI** - Are written using JavaScript, HTML and CSS. **`This exposes a very browser-like environment`**.
+- **Plugin Code** - For performance, the code itself runs on the main thread in a sandbox. The sandbox is a minimal JavaScript environment and **`does not expose browser APIs`.**
 
-/* If you are in the UI */
-import { html as io } from 'figmaio';
-```
+So basically, in the plugin UI, you deal with the user interaction (all the buttons, sliders and inputs). And in code, you deal with the code execution and interaction with the canvas (removing layers, changing layers, whatever you want to do). So to make all of this happen, you need to send data over to each othe. [Figma has an API](https://www.figma.com/plugin-docs/api/properties/figma-ui-onmessage/) for this, but I don't like it that much and I find it clunky to use. This library aims to make it easier to do.
+
+## Installation
+
+Very simple to do, just install it via `npm install figmaio` or `yarn add figmaio`.
 
 ## How to use
 
-Now, the whole library is about two simple events. Sending data, and recieving data. You send the data like this:
+First, you need to differentiate whether you are using the library in the Figma Code, or in Figma UI. This is important, because if you won't be using the right component for the right section of the code it will break your build process. _(it breakes the process because Figma code is not available in the browser API and the browser API in the Figma code)_
+
+
+```js
+/* In your are in the plugin logic (code) */
+import io from 'figmaio/code';
+
+/* If you are in the UI */
+import io from 'figmaio/ui';
+```
+
+### Sending events
+
+This is pretty straight forward to do. Just use the `io.send` and pass two parameters into it. The event name, and the data.
 
 ```js
 /* What is the name of the event that is happening? Can be anything */
@@ -25,7 +38,9 @@ io.send('data_update', {
 });
 ```
 
-And then you listen for data like this:
+### Listening for events
+
+Waiting for events is just as easy. Use the `io.on` function, and pass in the event name, and do whatever you need to do in the callback.
 
 ```js
 /* What event name are you waiting for? */
@@ -97,21 +112,6 @@ ReactDOM.render(
  <App data={data} />,
  node,
 )
-```
-
-## Listeners
-
-... and that is the basic gist of it. But lets say that you need to update saved information stored in Figma, and you need to send the updated data directly from the UI. You send the data over as you would normally do. But you need to setup listeners for that event, like this:
-
-
-```js
-/* previously shown code.js */
-
-io.on('data_update', (data: any): void => {
-    // Here you can do anything you want with the data
-    console.log(data);
-  }
-);
 ```
 
 ## Footnotes
