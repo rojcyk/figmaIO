@@ -1,4 +1,8 @@
-# FigmaIO
+<p align="center">
+  <img src="./logo.png">
+</p>
+
+# About
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/65f5afa9f3494fde89362d50acacf989)](https://www.codacy.com/manual/rojcyk/figmaIO?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rojcyk/figmaIO&amp;utm_campaign=Badge_Grade)
 
@@ -116,4 +120,4 @@ ReactDOM.render(
 
 ## Footnotes
 
-I saw the original idea of this lib sometimes early in 2019 on [Figma Spectrum](https://spectrum.chat/figma?tab=posts) but I don't remember who came up with it. I copied it over to my code and now a year later I need to keep using it with my other projects. So I decided to put it out as a standalone lib. If you are the person, please let me know!
+I saw the original idea of this lib sometimes early in 2019 on [Figma Spectrum](https://spectrum.chat/figma?tab=posts) (or maybe it was a Figma Slack), but I don't remember who came up with it. I copied it over to my code and now a year later I need to keep using it with my other projects. So I decided to clean it out a bit, comment it, and put it out as a standalone lib.
