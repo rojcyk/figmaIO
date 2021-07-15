@@ -85,10 +85,10 @@ switch (figma.command) {
    * sends it with 'start' anyways.
    */
 
- case '':
+ case 'edit':
    if (io) io.send('start', cachedData);
    break
- case 'edit':
+ default:
    if (io) io.send('start', cachedData);
    break
 }
