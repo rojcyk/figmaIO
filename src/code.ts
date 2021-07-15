@@ -1,11 +1,7 @@
 /* The whole project was heavily inspired by some person on Figma Spectrum sometimes
- * early in 2019. I would love to credit the person who came with this whole concept.
+ * early in 2019. I would love to credit the person who came with this whole concept but have no idea who it was.
  */
 import { EventEmitter } from 'events'
-
-/* The behaviour of the lib changes based on whether
- * we are running the plugin from the UI or the plugin code side */
-// const isRenderer = typeof figma === 'undefined'
 
 /* We are extending the standard EventEmitter with our helpers functions */
 interface ExtendedEmitter extends EventEmitter {
