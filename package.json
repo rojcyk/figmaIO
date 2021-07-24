@@ -10,6 +10,7 @@
     "compile": "tsc",
     "clean": "rm -rf dist",
     "build": "yarn run clean && yarn run compile && node dist/setupPackage.js && rm dist/setupPackage.*",
+    "preview": "yarn np patch --preview",
     "publish": "yarn run build && cd dist && np"
   },
   "publishConfig": {
