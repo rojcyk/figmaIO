@@ -4,7 +4,8 @@
 
 # About
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/65f5afa9f3494fde89362d50acacf989)](https://www.codacy.com/manual/rojcyk/figmaIO?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rojcyk/figmaIO&amp;utm_campaign=Badge_Grade)
+![David](https://img.shields.io/david/dev/rojcyk/figmaIO)
+![npm](https://img.shields.io/npm/dm/figmaio)
 
 
 The way Figma communicates with its plugins is quite different to what you might be used to from other tools. It goes something like this.
@@ -16,7 +17,15 @@ So basically, in the plugin UI, you deal with the user interaction (all the butt
 
 ## Installation
 
-Very simple to do, just install it via `npm install figmaio` or `yarn add figmaio`.
+Very simple to do, just install it via
+
+```bash
+# NPM
+npm install --save-dev figmaio
+
+# Yarn
+yarn add -D figmaio
+```
 
 ## How to use
 
@@ -55,7 +64,7 @@ io.on('data_update', (data) => {
 );
 ```
 
-If the data is critical for you and you need to stop and wait for it, you use async for that.
+If the data is critical for you and you need to stop and wait for it, you can use async for that.
 
 ```js
 const data = await io.async('data_update')
@@ -81,11 +90,10 @@ const cachedData = 'some cached data'
 switch (figma.command) {
    /* If we are running the plugin from the Figma plugin menu, it is starting with no command.
    * And if you are clicking on the editor sidebar plugin command, figma starts the plugin
-   * with 'edit' value for command, but since my plugin does not directly benefit from it, it just
-   * sends it with 'start' anyways.
+   * with with whaveter you specify in the manifest.json
    */
 
- case 'edit':
+ case 'something':
    if (io) io.send('start', cachedData);
    break
  default:
