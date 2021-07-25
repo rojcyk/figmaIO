@@ -93,8 +93,11 @@ switch (figma.command) {
    * with with whaveter you specify in the manifest.json
    */
 
- case 'something':
-   if (io) io.send('start', cachedData);
+ case 'edit':
+   if (io) io.send('start', { 
+    ...cachedData,
+    command: "edit"
+   });
    break
  default:
    if (io) io.send('start', cachedData);
